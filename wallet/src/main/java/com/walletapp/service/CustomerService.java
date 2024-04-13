@@ -5,7 +5,6 @@ import com.walletapp.dto.*;
 public interface CustomerService {
     WalletResponse createAccount(CustomerRequest customerRequest);
     WalletResponse balanceEnquiry(EnquiryRequest request);
-    String nameEnquiry(EnquiryRequest request);
     WalletResponse creditAccount(CreditDebitRequest request);
     WalletResponse debitAccount(CreditDebitRequest request);
     WalletResponse transfer(TransferRequest transferRequest);

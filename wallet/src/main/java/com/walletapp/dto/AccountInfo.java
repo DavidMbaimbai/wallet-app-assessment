@@ -1,5 +1,6 @@
 package com.walletapp.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +13,15 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountInfo {
-    private String accountName;
+    @Schema(
+            name = "Customer account name"
+    )
+    private String accountName;@Schema(
+            name = "Customer account balance"
+    )
     private BigDecimal accountBalance;
+    @Schema(
+            name = "Customer account number"
+    )
     private String accountNumber;
 }

@@ -18,6 +18,9 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     EmailService emailService;
 
+    @Autowired
+    TransactionService transactionService;
+
     @Override
     public WalletResponse createAccount(CustomerRequest customerRequest) {
         /**
@@ -92,15 +95,6 @@ public class CustomerServiceImpl implements CustomerService{
                 .build();
     }
 
-    @Override
-    public String nameEnquiry(EnquiryRequest request) {
-        boolean isAccountExist = customerRepository.existsByAccountNumber(request.getAccountNumber());
-        if (!isAccountExist){
-            return AccountUtils.ACCOUNT_NOT_EXIST_MESSAGE;
-        }
-        Customer foundCustomer = customerRepository.findByAccountNumber(request.getAccountNumber());
-        return foundCustomer.getFirstName() + " " + foundCustomer.getLastName() + " " + foundCustomer.getOtherName();
-    }
 
     @Override
     public WalletResponse creditAccount(CreditDebitRequest request) {
@@ -117,7 +111,13 @@ public class CustomerServiceImpl implements CustomerService{
         Customer customerToCredit = customerRepository.findByAccountNumber(request.getAccountNumber());
         customerToCredit.setAccountBalance(customerToCredit.getAccountBalance().add(request.getAmount()));
         customerRepository.save(customerToCredit);
-
+        //save the transaction
+        TransactionDto transactionDto = TransactionDto.builder()
+                .accountNumber(customerToCredit.getAccountNumber())
+                .transactionType("CREDIT")
+                .amount(request.getAmount())
+                .build();
+        transactionService.saveTransaction(transactionDto);
         return WalletResponse.builder()
                 .responseCode(AccountUtils.ACCOUNT_CREDITED_SUCCESS)
                 .responseMessage(AccountUtils.ACCOUNT_CREDITED_SUCCESS_MESSAGE)
