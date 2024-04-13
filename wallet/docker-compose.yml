@@ -1,0 +1,48 @@
+services:
+  accounts:
+    image: "davidm202/accounts:v1"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - davidm
+  cards:
+    image: "davidm202/cards:v1"
+    container_name: cards-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - davidm
+  login:
+    image: "davidm202/login:v1"
+    container_name: cards-ms
+    ports:
+      - "8070:8070"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - davidm
+  loans:
+    image: "davidm202/loans:v1"
+    container_name: loans-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - davidm202
+networks:
+  edsonj:
+    driver: "bridge"
