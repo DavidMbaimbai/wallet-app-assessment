@@ -44,7 +44,7 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
        httpSecurity.csrf(csrf-> csrf.disable())
                .authorizeRequests(authorize -> authorize
-               .requestMatchers(HttpMethod.POST, "/api/customer").permitAll()
+               .requestMatchers( "/api/customer/**").permitAll()
                .anyRequest()
                        .authenticated());
         httpSecurity.sessionManagement(session -> session
