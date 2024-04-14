@@ -7,6 +7,5 @@ public interface CustomerService {
     WalletResponse balanceEnquiry(EnquiryRequest request);
     WalletResponse creditAccount(CreditDebitRequest request);
     WalletResponse debitAccount(CreditDebitRequest request);
-    WalletResponse transfer(TransferRequest transferRequest);
     WalletResponse login(LoginDto loginDto);
 }
