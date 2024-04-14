@@ -6,6 +6,9 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.walletapp.model.Transaction;
 import com.walletapp.service.TransactionHistory;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +29,16 @@ import java.util.List;
 public class TransactionHistoryController {
     private TransactionHistory transactionHistory;
 
-
+    @Operation(
+            summary = "Transaction History  REST API",
+            description = "check how much the transaction histor of a customer"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status SUCCESS"
+            )
+    })
     @GetMapping("/history")
     public List<Transaction> generateTransactionHistory(@RequestParam String accountNumber,
                                                         @RequestParam String startDate,
