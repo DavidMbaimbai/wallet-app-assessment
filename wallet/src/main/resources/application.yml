@@ -24,12 +24,17 @@ server:
 
 build:
   version: "3.0"
+security:
+  app.jwt-secret: OVNR1c8gswv6XxhymbgLBUqCQ2fwAXV6FcKOfjEHWxjqY32jD4wk+Phu5ACTu5a+gmiR3voJu0RLdn5sqsXmmQ==
+  app.jwt-expiration: 86400
+
 
 accounts:
   message: "Welcome to EazyBank accounts related local APIs"
   contactDetails:
     name: "David Mbaimbai - Java Developer"
     email: "davymbaimbai@gmail.com"
+
   onCallSupport:
     - (555) 555-1234
     - (555) 523-1345
