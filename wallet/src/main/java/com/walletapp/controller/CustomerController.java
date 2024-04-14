@@ -31,7 +31,16 @@ public class CustomerController {
     public WalletResponse createAccount(@RequestBody CustomerRequest customerRequest){
         return customerService.createAccount(customerRequest);
     }
-
+    @Operation(
+            summary = "Login REST API",
+            description = "REST API to login inside a Wallet App"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "HTTP Status SUCCESSFUL"
+            )
+    })
     @PostMapping("/login")
     public WalletResponse login(@RequestBody LoginDto loginDto){
         return customerService.login(loginDto);
@@ -50,20 +59,34 @@ public class CustomerController {
     public WalletResponse balanceEnquiry(@RequestBody EnquiryRequest request){
         return customerService.balanceEnquiry(request);
     }
-
+    @Operation(
+            summary = "Customer Account Credit REST API",
+            description = "REST API for a credit"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "HTTP Status SUCCESSFUL"
+            )
+    })
     @PostMapping("/credit")
     public WalletResponse creditAccount(@RequestBody CreditDebitRequest request){
         return customerService.creditAccount(request);
     }
-
+    @Operation(
+            summary = "Customer Account Debit REST API",
+            description = "REST API for a debit"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "HTTP Status SUCCESSFUL"
+            )
+    })
     @PostMapping("/debit")
     public WalletResponse debitAccount(@RequestBody CreditDebitRequest request){
         return customerService.debitAccount(request);
     }
 
-    @PostMapping("/transfer")
-    public WalletResponse transfer(@RequestBody TransferRequest transferRequest){
-        return customerService.transfer(transferRequest);
-    }
 
 }
