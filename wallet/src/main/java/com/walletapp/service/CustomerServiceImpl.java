@@ -1,10 +1,11 @@
 package com.walletapp.service;
 
-import com.walletapp.config.JwtTokenProvider;
+import com.walletapp.config.JwtTokenGenerator;
 import com.walletapp.dto.*;
 import com.walletapp.model.Customer;
 import com.walletapp.repository.CustomerRepository;
 import com.walletapp.utils.AccountUtils;
+import io.jsonwebtoken.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService{
     AuthenticationManager authenticationManager;
 
     @Autowired
-    JwtTokenProvider jwtTokenProvider;
+    JwtTokenGenerator jwtTokenGenerator;
 
     @Override
     public WalletResponse createAccount(CustomerRequest customerRequest) {
@@ -48,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService{
         Customer newCustomer = Customer.builder()
                 .firstName(customerRequest.getFirstName())
                 .lastName(customerRequest.getLastName())
-                .otherName(customerRequest.getOtherName())
+                .username(customerRequest.getOtherName())
                 .gender(customerRequest.getGender())
                 .address(customerRequest.getAddress())
                 .stateOfOrigin(customerRequest.getStateOfOrigin())
@@ -68,7 +69,7 @@ public class CustomerServiceImpl implements CustomerService{
                 .accountInfo(AccountInfo.builder()
                         .accountBalance(savedCustomer.getAccountBalance())
                         .accountNumber(savedCustomer.getAccountNumber())
-                        .accountName(savedCustomer.getFirstName() + " " + savedCustomer.getLastName() + " " + savedCustomer.getOtherName())
+                        .accountName(savedCustomer.getFirstName() + " " + savedCustomer.getLastName() + " " + savedCustomer.getUsername())
                         .build())
                 .build();
 
@@ -80,7 +81,7 @@ public class CustomerServiceImpl implements CustomerService{
 
         return WalletResponse.builder()
                 .responseCode("Login Successful")
-                .responseMessage(jwtTokenProvider.generateToken(authentication))
+                .responseMessage(jwtTokenGenerator.generateToken(authentication))
                 .build();
     }
 
@@ -103,7 +104,7 @@ public class CustomerServiceImpl implements CustomerService{
                 .accountInfo(AccountInfo.builder()
                         .accountBalance(foundCustomer.getAccountBalance())
                         .accountNumber(request.getAccountNumber())
-                        .accountName(foundCustomer.getFirstName() + " " + foundCustomer.getLastName() + " " + foundCustomer.getOtherName())
+                        .accountName(foundCustomer.getFirstName() + " " + foundCustomer.getLastName() + " " + foundCustomer.getUsername())
                         .build())
                 .build();
     }
@@ -135,7 +136,7 @@ public class CustomerServiceImpl implements CustomerService{
                 .responseCode(AccountUtils.ACCOUNT_CREDITED_SUCCESS)
                 .responseMessage(AccountUtils.ACCOUNT_CREDITED_SUCCESS_MESSAGE)
                 .accountInfo(AccountInfo.builder()
-                        .accountName(customerToCredit.getFirstName() + " " + customerToCredit.getLastName() + " " + customerToCredit.getOtherName())
+                        .accountName(customerToCredit.getFirstName() + " " + customerToCredit.getLastName() + " " + customerToCredit.getUsername())
                         .accountBalance(customerToCredit.getAccountBalance())
                         .accountNumber(request.getAccountNumber())
                         .build())
@@ -179,7 +180,7 @@ public class CustomerServiceImpl implements CustomerService{
                     .responseMessage(AccountUtils.ACCOUNT_DEBITED_MESSAGE)
                     .accountInfo(AccountInfo.builder()
                             .accountNumber(request.getAccountNumber())
-                            .accountName(customerToDebit.getFirstName() + " " + customerToDebit.getLastName() + " " + customerToDebit.getOtherName())
+                            .accountName(customerToDebit.getFirstName() + " " + customerToDebit.getLastName() + " " + customerToDebit.getUsername())
                             .accountBalance(customerToDebit.getAccountBalance())
                             .build())
                     .build();

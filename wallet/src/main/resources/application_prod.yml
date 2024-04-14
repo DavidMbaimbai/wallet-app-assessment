@@ -1,8 +1,5 @@
 build:
   version: "3.0"
-security:
-  app.jwt-secret: OVNR1c8gswv6XxhymbgLBUqCQ2fwAXV6FcKOfjEHWxjqY32jD4wk+Phu5ACTu5a+gmiR3voJu0RLdn5sqsXmmQ==
-  app.jwt-expiration: 86400
 accounts:
   message: "Welcome to EazyBank accounts related Prod APIs"
   contactDetails:

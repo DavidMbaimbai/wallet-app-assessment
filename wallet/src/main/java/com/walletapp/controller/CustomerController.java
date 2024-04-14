@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,8 +30,9 @@ public class CustomerController {
             )
     })
     @PostMapping("/create")
-    public WalletResponse createAccount(@RequestBody CustomerRequest customerRequest){
-        return customerService.createAccount(customerRequest);
+    public ResponseEntity<WalletResponse> createAccount(@RequestBody CustomerRequest customerRequest){
+        WalletResponse account = customerService.createAccount(customerRequest);
+        return new ResponseEntity<>(account, HttpStatus.CREATED);
     }
     @Operation(
             summary = "Login REST API",
@@ -42,8 +45,9 @@ public class CustomerController {
             )
     })
     @PostMapping("/login")
-    public WalletResponse login(@RequestBody LoginDto loginDto){
-        return customerService.login(loginDto);
+    public ResponseEntity<WalletResponse> login(@RequestBody LoginDto loginDto){
+        WalletResponse login = customerService.login(loginDto);
+        return new ResponseEntity<>(login, HttpStatus.OK);
     }
     @Operation(
             summary = "Balance Enquiry  REST API",
@@ -56,8 +60,9 @@ public class CustomerController {
             )
     })
     @GetMapping("/balance-enquiry")
-    public WalletResponse balanceEnquiry(@RequestBody EnquiryRequest request){
-        return customerService.balanceEnquiry(request);
+    public ResponseEntity<WalletResponse> balanceEnquiry(@RequestBody EnquiryRequest request){
+        WalletResponse balanceEnquiry = customerService.balanceEnquiry(request);
+        return new ResponseEntity<>(balanceEnquiry, HttpStatus.OK);
     }
     @Operation(
             summary = "Customer Account Credit REST API",
@@ -70,8 +75,9 @@ public class CustomerController {
             )
     })
     @PostMapping("/credit")
-    public WalletResponse creditAccount(@RequestBody CreditDebitRequest request){
-        return customerService.creditAccount(request);
+    public ResponseEntity<WalletResponse> creditAccount(@RequestBody CreditDebitRequest request){
+        WalletResponse credit = customerService.creditAccount(request);
+        return new ResponseEntity<>(credit, HttpStatus.OK);
     }
     @Operation(
             summary = "Customer Account Debit REST API",
@@ -84,9 +90,8 @@ public class CustomerController {
             )
     })
     @PostMapping("/debit")
-    public WalletResponse debitAccount(@RequestBody CreditDebitRequest request){
-        return customerService.debitAccount(request);
+    public ResponseEntity<WalletResponse> debitAccount(@RequestBody CreditDebitRequest request){
+        WalletResponse debit = customerService.debitAccount(request);
+        return new ResponseEntity<>(debit, HttpStatus.OK);
     }
-
-
 }
