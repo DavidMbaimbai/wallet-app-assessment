@@ -1,10 +1,15 @@
 package com.walletapp.service;
 
+import com.walletapp.config.JwtTokenProvider;
 import com.walletapp.dto.*;
 import com.walletapp.model.Customer;
 import com.walletapp.repository.CustomerRepository;
 import com.walletapp.utils.AccountUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -16,10 +21,16 @@ public class CustomerServiceImpl implements CustomerService{
     CustomerRepository customerRepository;
 
     @Autowired
-    EmailService emailService;
+    TransactionService transactionService;
 
     @Autowired
-    TransactionService transactionService;
+    PasswordEncoder passwordEncoder;
+
+    @Autowired
+    AuthenticationManager authenticationManager;
+
+    @Autowired
+    JwtTokenProvider jwtTokenProvider;
 
     @Override
     public WalletResponse createAccount(CustomerRequest customerRequest) {
@@ -44,21 +55,13 @@ public class CustomerServiceImpl implements CustomerService{
                 .accountNumber(AccountUtils.generateAccountNumber())
                 .accountBalance(BigDecimal.ZERO)
                 .email(customerRequest.getEmail())
+                .password(passwordEncoder.encode(customerRequest.getPassword()))
                 .phoneNumber(customerRequest.getPhoneNumber())
                 .alternativePhoneNumber(customerRequest.getAlternativePhoneNumber())
                 .status("ACTIVE")
                 .build();
 
         Customer savedCustomer = customerRepository.save(newCustomer);
-        //Send email Alert
-        EmailDetails emailDetails = EmailDetails.builder()
-                .recipient(savedCustomer.getEmail())
-                .subject("ACCOUNT CREATION")
-                .messageBody("Congratulations! Your Account Has been Successfully Created.\nYour Account Details: \n" +
-                        "Account Name: " + savedCustomer.getFirstName() + " " + savedCustomer.getLastName() + " " + savedCustomer.getOtherName() + "\nAccount Number: " + savedCustomer.getAccountNumber())
-                .build();
-        emailService.sendEmailAlert(emailDetails);
-
         return WalletResponse.builder()
                 .responseCode(AccountUtils.ACCOUNT_CREATION_SUCCESS)
                 .responseMessage(AccountUtils.ACCOUNT_CREATION_MESSAGE)
@@ -69,6 +72,16 @@ public class CustomerServiceImpl implements CustomerService{
                         .build())
                 .build();
 
+    }
+    public WalletResponse login(LoginDto loginDto){
+        Authentication authentication = null;
+        authentication = authenticationManager.
+                authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
+
+        return WalletResponse.builder()
+                .responseCode("Login Successful")
+                .responseMessage(jwtTokenProvider.generateToken(authentication))
+                .build();
     }
 
     @Override
@@ -155,6 +168,12 @@ public class CustomerServiceImpl implements CustomerService{
         else {
             customerToDebit.setAccountBalance(customerToDebit.getAccountBalance().subtract(request.getAmount()));
             customerRepository.save(customerToDebit);
+            TransactionDto transactionDto = TransactionDto.builder()
+                    .accountNumber(customerToDebit.getAccountNumber())
+                    .transactionType("DEBIT")
+                    .amount(request.getAmount())
+                    .build();
+            transactionService.saveTransaction(transactionDto);
             return WalletResponse.builder()
                     .responseCode(AccountUtils.ACCOUNT_DEBITED_SUCCESS)
                     .responseMessage(AccountUtils.ACCOUNT_DEBITED_MESSAGE)
@@ -193,23 +212,22 @@ public class CustomerServiceImpl implements CustomerService{
                 sourceAccountCustomer.getLastName() + " " + sourceAccountCustomer.getOtherName();
 
         customerRepository.save(sourceAccountCustomer);
-        EmailDetails debitAlert  = EmailDetails.builder()
-                .subject("DEBIT ALERT")
-                .recipient(sourceAccountCustomer.getEmail())
-                .messageBody("The sum of " + transferRequest.getAmount() + "has been deducted from your account! Your balance is " + sourceAccountCustomer.getAccountBalance())
+        TransactionDto transactionDto = TransactionDto.builder()
+                .accountNumber(sourceAccountCustomer.getAccountNumber())
+                .transactionType("DEBIT")
+                .amount(transferRequest.getAmount())
                 .build();
-        emailService.sendEmailAlert(debitAlert);
+        transactionService.saveTransaction(transactionDto);
         Customer destiantionAccountCustomer = customerRepository.findByAccountNumber(transferRequest.getDestinationAccountNumber());
         destiantionAccountCustomer.setAccountBalance(destiantionAccountCustomer.getAccountBalance().add(transferRequest.getAmount()));
         //String recepientUsername  = destiantionAccountCustomer.getFirstName() + " " +destiantionAccountCustomer.getLastName() + " " + destiantionAccountCustomer.getOtherName();
         customerRepository.save(destiantionAccountCustomer);
-        EmailDetails creditAlert  = EmailDetails.builder()
-                .subject("CREDIT ALERT")
-                .recipient(sourceAccountCustomer.getEmail())
-                .messageBody("The sum of " + transferRequest.getAmount() + "has been sent to your account from " +sourceUsername +  "Your current balance is " + sourceAccountCustomer.getAccountBalance())
+        TransactionDto transactionDto1 = TransactionDto.builder()
+                .accountNumber(destiantionAccountCustomer.getAccountNumber())
+                .transactionType("CREDIT")
+                .amount(transferRequest.getAmount())
                 .build();
-        emailService.sendEmailAlert(creditAlert);
-
+        transactionService.saveTransaction(transactionDto1);
         return WalletResponse.builder()
                 .responseCode(AccountUtils.TRANSFER_SUCCESSFUL_CODE)
                 .responseMessage(AccountUtils.TRANSFER_SUCCESSFUL_MESSAGE)

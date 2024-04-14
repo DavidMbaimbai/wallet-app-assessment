@@ -6,12 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class EmailDetails {
-    private String recipient;
-    private String messageBody;
-    private String subject;
-    private String attachment;
+public class LoginDto {
+    private String email;
+    private String password;
 }

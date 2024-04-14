@@ -1,16 +1,4 @@
 spring:
-  mail:
-    host: smtp.gmail.com
-    port:  465
-    username: davidm.mbaimbai@gmail.com
-    password: afckpftcafblmzwy
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-
 server:
   port: 8080
   datasource:

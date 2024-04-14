@@ -17,6 +17,7 @@ public class CustomerRequest {
     private String address;
     private String stateOfOrigin;
     private String email;
+    private String password;
     private String phoneNumber;
     private String alternativePhoneNumber;
 }

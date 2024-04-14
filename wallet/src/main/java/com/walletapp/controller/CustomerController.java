@@ -31,6 +31,11 @@ public class CustomerController {
     public WalletResponse createAccount(@RequestBody CustomerRequest customerRequest){
         return customerService.createAccount(customerRequest);
     }
+
+    @PostMapping("/login")
+    public WalletResponse login(@RequestBody LoginDto loginDto){
+        return customerService.login(loginDto);
+    }
     @Operation(
             summary = "Balance Enquiry  REST API",
             description = "Given account number, check how much the customer has"

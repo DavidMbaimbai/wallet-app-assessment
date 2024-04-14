@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/ErrorDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/TransactionDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/repository/TransactionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/TransactionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/TransactionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomCustomerDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/TransactionHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/AccountInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/AccountInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/CustomerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/CustomerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/dto/EmailDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/repository/CustomerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/EmailServiceImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,8 +47,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/wallet/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConfig.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Transaction.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/EmailServiceImpl.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/TransactionHistory.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
@@ -131,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712939230587</updated>
       <workItem from="1712939231520" duration="4641000" />
-      <workItem from="1712944568389" duration="14274000" />
+      <workItem from="1712944568389" duration="38268000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
@@ -141,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713021153537</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Assessment">
+      <option name="closed" value="true" />
+      <created>1713029410380</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713029410380</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
