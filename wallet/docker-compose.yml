@@ -1,48 +1,32 @@
+version: '3.8'
+
 services:
-  accounts:
-    image: "davidm202/accounts:v1"
-    container_name: accounts-ms
+  mysql:
+    container_name: mysql-sql-wallet
+    image: mysql
+    environment:
+      MYSQL_DATABASE: mysql-sql-wallet
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - mysql:/var/lib/mysql
     ports:
-      - "8080:8080"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
+      - "3306:3306"
     networks:
-      - davidm
-  cards:
-    image: "davidm202/cards:v1"
-    container_name: cards-ms
+      - spring-wallet
+    restart: unless-stopped
+
+  mail-dev:
+    container_name: mail-dev-wallet
+    image: maildev/maildev
     ports:
-      - "8090:8090"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - davidm
-  login:
-    image: "davidm202/login:v1"
-    container_name: cards-ms
-    ports:
-      - "8070:8070"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - davidm
-  loans:
-    image: "davidm202/loans:v1"
-    container_name: loans-ms
-    ports:
-      - "9000:9000"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - davidm202
+      - "1080:1080"
+      - "1025:1025"
+
+volumes:
+  mysql:
+    driver: local
+
 networks:
-  edsonj:
-    driver: "bridge"
+  spring-wallet:
+    driver: bridge

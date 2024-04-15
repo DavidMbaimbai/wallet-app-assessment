@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/utils/AccountUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/utils/AccountUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +36,9 @@
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/TransactionHistory.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -49,6 +53,8 @@
     "Application.Generator.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.WalletApp.executor": "Run",
+    "Docker.wallet.postgres: Compose Deployment.executor": "Run",
+    "Docker.wallet: Compose Deployment.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -69,6 +75,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
@@ -82,7 +89,7 @@
       <recent name="com.walletapp.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WalletApp">
+  <component name="RunManager" selected="Docker.wallet: Compose Deployment">
     <configuration name="WalletApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.walletapp.WalletApp" />
       <module name="wallet" />
@@ -110,10 +117,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wallet: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="wallet/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="wallet.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="postgres" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="wallet/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WalletApp" />
+        <item itemvalue="Docker.wallet: Compose Deployment" />
         <item itemvalue="Spring Boot.WalletApp" />
+        <item itemvalue="Application.WalletApp" />
+        <item itemvalue="Docker.wallet.postgres: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -127,6 +161,7 @@
       <updated>1712939230587</updated>
       <workItem from="1712939231520" duration="4641000" />
       <workItem from="1712944568389" duration="57661000" />
+      <workItem from="1713122270096" duration="33454000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
