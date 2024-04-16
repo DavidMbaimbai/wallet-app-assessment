@@ -25,8 +25,6 @@ CREATE TABLE IF NOT EXISTS account_transactions (
     `transaction_type` VARCHAR(255) NOT NULL,
     `amount` DECIMAL(19, 2) NOT NULL,
     `transaction_date` TIMESTAMP NOT NULL,
-    `account_number` BIGINT NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-    FOREIGN KEY (account_number) REFERENCES account(account_number)
+    `account_number` BIGINT NOT NULL
     );
 

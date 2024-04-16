@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/enums/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +39,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/wallet/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConfig.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Customer.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/model/Transaction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/service/TransactionHistory.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/wallet/src/main/resources/application.yml" root0="SKIP_INSPECTION" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -80,6 +90,9 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\WALLET-APP\wallet\src\main\resources" />
@@ -89,7 +102,7 @@
       <recent name="com.walletapp.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.wallet: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.WalletApp">
     <configuration name="WalletApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.walletapp.WalletApp" />
       <module name="wallet" />
@@ -118,7 +131,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="wallet: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -144,8 +159,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.wallet: Compose Deployment" />
         <item itemvalue="Spring Boot.WalletApp" />
+        <item itemvalue="Docker.wallet: Compose Deployment" />
         <item itemvalue="Application.WalletApp" />
         <item itemvalue="Docker.wallet.postgres: Compose Deployment" />
       </list>
@@ -161,7 +176,9 @@
       <updated>1712939230587</updated>
       <workItem from="1712939231520" duration="4641000" />
       <workItem from="1712944568389" duration="57661000" />
-      <workItem from="1713122270096" duration="33454000" />
+      <workItem from="1713122270096" duration="34127000" />
+      <workItem from="1713201236779" duration="8480000" />
+      <workItem from="1713209795295" duration="9177000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
@@ -235,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713117101311</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Assessment">
+      <option name="closed" value="true" />
+      <created>1713200348929</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713200348930</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,5 +269,41 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Assessment" />
     <option name="LAST_COMMIT_MESSAGE" value="Assessment" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java</url>
+          <line>21</line>
+          <properties field="jwtSecret" class="com.walletapp.config.JwtTokenProvider" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java</url>
+          <line>42</line>
+          <properties class="com.walletapp.config.JwtTokenProvider" method="getUsername">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,11 +1,11 @@
 package com.walletapp.service;
 
-import com.walletapp.config.JwtTokenGenerator;
+import com.walletapp.config.JwtTokenProvider;
 import com.walletapp.dto.*;
+import com.walletapp.enums.Role;
 import com.walletapp.model.Customer;
 import com.walletapp.repository.CustomerRepository;
 import com.walletapp.utils.AccountUtils;
-import io.jsonwebtoken.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService{
     AuthenticationManager authenticationManager;
 
     @Autowired
-    JwtTokenGenerator jwtTokenGenerator;
+    JwtTokenProvider jwtTokenProvider;
 
     @Override
     public WalletResponse createAccount(CustomerRequest customerRequest) {
@@ -59,6 +59,7 @@ public class CustomerServiceImpl implements CustomerService{
                 .password(passwordEncoder.encode(customerRequest.getPassword()))
                 .phoneNumber(customerRequest.getPhoneNumber())
                 .alternativePhoneNumber(customerRequest.getAlternativePhoneNumber())
+                .role(Role.valueOf("ROLE_USER"))
                 .status("ACTIVE")
                 .build();
 
@@ -81,7 +82,7 @@ public class CustomerServiceImpl implements CustomerService{
 
         return WalletResponse.builder()
                 .responseCode("Login Successful")
-                .responseMessage(jwtTokenGenerator.generateToken(authentication))
+                .responseMessage(jwtTokenProvider.generateToken(authentication))
                 .build();
     }
 
