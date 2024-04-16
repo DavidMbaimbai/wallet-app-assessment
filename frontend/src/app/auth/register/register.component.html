@@ -1,0 +1,149 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<!-- create account with new control flow syntax -->
+
+<div class="container mt-5 mb-5">
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-6">
+            <div class="card px-5 py-5">
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <h2 class="text-center text-info">
+                        Create Account
+                    </h2>
+
+                    @if (errors.length > 0) { @for (error of errors; track error) {
+
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">
+                            {{ error }}
+                        </li>
+                    </ul>
+
+                    } }
+
+                    <!-- firstName -->
+                    <div class="input-group mt-3">
+
+                        <input type="text" class="form-control" placeholder="First name" formControlName="firstName" required>
+
+                    </div>
+
+                    @if (isValidInput('firstName')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['firstName'].errors.required) { First name is required. }
+                    </div>
+                    }
+
+                    <!-- lastName -->
+                    <div class="input-group mt-3">
+
+                        <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" required>
+
+                    </div>
+
+                    @if (isValidInput('lastName')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['lastName'].errors.required) { Last name is required. }
+                    </div>
+
+                    }
+
+                    <!-- gender dropdown -->
+                    <div class="input-group mt-3">
+
+                        <select class="form-control" formControlName="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+
+                    </div>
+
+                    @if (isValidInput('gender')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['gender'].errors.required) { Gender is required. }
+                    </div>
+
+                    }
+
+                    <!-- Address text area -->
+                    <div class="input-group mt-3">
+
+                        <textarea class="form-control" placeholder="Address" formControlName="address" required></textarea>
+
+                    </div>
+
+                    @if (isValidInput('address')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['address'].errors.required) { Address is required. }
+                    </div>
+
+                    }
+
+                    <!-- Phone number input -->
+                    <div class="input-group mt-3">
+
+                        <input type="text" class="form-control" placeholder="Phone number" formControlName="phone" required>
+
+                    </div>
+
+                    @if (isValidInput('phone')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['phone'].errors.required) { Phone number is required. }
+                    </div>
+
+                    }
+
+
+                    <!-- Email input -->
+                    <div class="input-group mt-3">
+                        <i class="fa fa-envelope"></i>
+
+                        <input type="email" class="form-control" placeholder="Email address" formControlName="email" required>
+
+                    </div>
+
+                    @if (isValidInput('email')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['email'].errors.required) { Email is required. } @if (registerForm.controls['email'].errors.pattern) { Must be a valid email format. }
+                    </div>
+
+                    }
+
+                    <!-- Password input -->
+                    <div class="input-group mt-3">
+                        <i class="fa fa-lock
+                        "></i>
+
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password" required>
+
+                    </div>
+
+                    @if (isValidInput('password')) {
+
+                    <div class="alert alert-danger">
+                        @if (registerForm.controls['password'].errors.required) { Password is required. }
+                    </div>
+                    }
+
+                    <button [disabled]="!registerForm.valid" type="submit" class="w-100 btn btn-lg btn-primary signup mt-4">Register</button>
+
+                    <div class="text-center mt-3">
+                        <a [routerLink]="['/login']">Already have an account? Login</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
