@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
@@ -39,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService{
          * Creating an account - saving a new user into the db
          * check if user already has an account
          */
-        if (customerRepository.existsByEmail(customerRequest.getEmail())){
+        if (customerRepository.existsByEmail(customerRequest.getEmail())) {
             return WalletResponse.builder()
                     .responseCode(AccountUtils.ACCOUNT_EXISTS_CODE)
                     .responseMessage(AccountUtils.ACCOUNT_EXISTS_MESSAGE)
@@ -75,7 +75,8 @@ public class CustomerServiceImpl implements CustomerService{
                 .build();
 
     }
-    public WalletResponse login(LoginDto loginDto){
+
+    public WalletResponse login(LoginDto loginDto) {
         Authentication authentication = null;
         authentication = authenticationManager.
                 authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
@@ -90,7 +91,7 @@ public class CustomerServiceImpl implements CustomerService{
     public WalletResponse balanceEnquiry(EnquiryRequest request) {
         //check if the provided account number exists in the db
         boolean isAccountExist = customerRepository.existsByAccountNumber(request.getAccountNumber());
-        if (!isAccountExist){
+        if (!isAccountExist) {
             return WalletResponse.builder()
                     .responseCode(AccountUtils.ACCOUNT_NOT_EXIST_CODE)
                     .responseMessage(AccountUtils.ACCOUNT_NOT_EXIST_MESSAGE)
@@ -115,7 +116,7 @@ public class CustomerServiceImpl implements CustomerService{
     public WalletResponse creditAccount(CreditDebitRequest request) {
         //checking if the account exists
         boolean isAccountExist = customerRepository.existsByAccountNumber(request.getAccountNumber());
-        if (!isAccountExist){
+        if (!isAccountExist) {
             return WalletResponse.builder()
                     .responseCode(AccountUtils.ACCOUNT_NOT_EXIST_CODE)
                     .responseMessage(AccountUtils.ACCOUNT_NOT_EXIST_MESSAGE)
@@ -149,7 +150,7 @@ public class CustomerServiceImpl implements CustomerService{
         //check if the account exists
         //check if the amount you intend to withdraw is not more than the current account balance
         boolean isAccountExist = customerRepository.existsByAccountNumber(request.getAccountNumber());
-        if (!isAccountExist){
+        if (!isAccountExist) {
             return WalletResponse.builder()
                     .responseCode(AccountUtils.ACCOUNT_NOT_EXIST_CODE)
                     .responseMessage(AccountUtils.ACCOUNT_NOT_EXIST_MESSAGE)
@@ -158,16 +159,15 @@ public class CustomerServiceImpl implements CustomerService{
         }
 
         Customer customerToDebit = customerRepository.findByAccountNumber(request.getAccountNumber());
-        BigInteger availableBalance =customerToDebit.getAccountBalance().toBigInteger();
+        BigInteger availableBalance = customerToDebit.getAccountBalance().toBigInteger();
         BigInteger debitAmount = request.getAmount().toBigInteger();
-        if ( availableBalance.intValue() < debitAmount.intValue()){
+        if (availableBalance.intValue() < debitAmount.intValue()) {
             return WalletResponse.builder()
                     .responseCode(AccountUtils.INSUFFICIENT_BALANCE_CODE)
                     .responseMessage(AccountUtils.INSUFFICIENT_BALANCE_MESSAGE)
                     .accountInfo(null)
                     .build();
-        }
-        else {
+        } else {
             customerToDebit.setAccountBalance(customerToDebit.getAccountBalance().subtract(request.getAmount()));
             customerRepository.save(customerToDebit);
             TransactionDto transactionDto = TransactionDto.builder()

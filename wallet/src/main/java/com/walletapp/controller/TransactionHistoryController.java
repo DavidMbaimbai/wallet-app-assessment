@@ -29,7 +29,7 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/transaction")
 @AllArgsConstructor
-@Tag(name= "Transaction history  API")
+@Tag(name = "Transaction history  API")
 public class TransactionHistoryController {
     private TransactionHistory transactionHistory;
 
@@ -45,8 +45,8 @@ public class TransactionHistoryController {
     })
     @GetMapping("/history")
     public ResponseEntity<List<Transaction>> generateTransactionHistory(@RequestParam String accountNumber,
-                                                                       @RequestParam String startDate,
-                                                                       @RequestParam String endDate){
+                                                                        @RequestParam String startDate,
+                                                                        @RequestParam String endDate) {
         List<Transaction> transactions = transactionHistory.generateTransactionHistory(accountNumber, startDate, endDate);
         return new ResponseEntity<>(transactions, HttpStatus.OK);
     }

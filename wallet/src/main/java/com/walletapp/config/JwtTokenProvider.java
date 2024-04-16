@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+
 @Component
 public class JwtTokenProvider {
     @Value("${app.jwt-secret}")
@@ -39,7 +40,8 @@ public class JwtTokenProvider {
         byte[] bytes = Decoders.BASE64.decode(jwtSecret);
         return Keys.hmacShaKeyFor(bytes);
     }
-    public String getUsername(String token){
+
+    public String getUsername(String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key())
                 .build()
@@ -57,6 +59,7 @@ public class JwtTokenProvider {
             return true;
         } catch (ExpiredJwtException | IllegalArgumentException | SignatureException | MailAuthenticationException ex) {
             throw new RuntimeException(ex);
-        }}
+        }
+    }
 
 }

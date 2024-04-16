@@ -19,7 +19,7 @@ public class AccountUtils {
     public static final String ACCOUNT_DEBITED_MESSAGE = "Account has been successfully debited";
 
 
-    public static String generateAccountNumber(){
+    public static String generateAccountNumber() {
         Year currentYear = Year.now();
         int min = 100000;
         int max = 999999;
