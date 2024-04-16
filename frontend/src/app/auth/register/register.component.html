@@ -49,6 +49,20 @@
                     </div>
 
                     }
+                    <!-- otherName -->
+                    <div class="input-group mt-3">
+
+                        <input type="text" class="form-control" placeholder="Other name" formControlName="otherName" required>
+
+                    </div>
+
+                    @if (isValidInput('otherName')) {
+
+                        <div class="alert alert-danger">
+                            @if (registerForm.controls['otherName'].errors.required) { Other  name is required. }
+                        </div>
+
+                    }
 
                     <!-- gender dropdown -->
                     <div class="input-group mt-3">
@@ -83,19 +97,47 @@
                     </div>
 
                     }
+                    <!-- State of Origin  text area -->
+                    <div class="input-group mt-3">
+
+                        <textarea class="form-control" placeholder="State of Origin" formControlName="stateOfOrigin" required></textarea>
+
+                    </div>
+
+                    @if (isValidInput('stateOfOrigin')) {
+
+                        <div class="alert alert-danger">
+                            @if (registerForm.controls['stateOfOrigin'].errors.required) { State of Origin is required. }
+                        </div>
+
+                    }
 
                     <!-- Phone number input -->
                     <div class="input-group mt-3">
 
-                        <input type="text" class="form-control" placeholder="Phone number" formControlName="phone" required>
+                        <input type="text" class="form-control" placeholder="Phone number" formControlName="phoneNumber" required>
 
                     </div>
 
-                    @if (isValidInput('phone')) {
+                    @if (isValidInput('phoneNumber')) {
 
                     <div class="alert alert-danger">
-                        @if (registerForm.controls['phone'].errors.required) { Phone number is required. }
+                        @if (registerForm.controls['phoneNumber'].errors.required) { Phone number is required. }
                     </div>
+
+                    }
+                    <!-- alternativeNumber -->
+                    <div class="input-group mt-3">
+
+                        <input type="text" class="form-control" placeholder="Alternative Number" formControlName="alternativeNumber" required>
+
+                    </div>
+
+                    @if (isValidInput('alternativeNumber')) {
+
+                        <div class="alert alert-danger">
+                            @if (registerForm.controls['alternativeNumber'].errors.required) { Alternative number is required. }
+                        </div>
 
                     }
 

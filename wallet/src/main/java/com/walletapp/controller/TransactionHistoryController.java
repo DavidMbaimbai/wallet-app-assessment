@@ -27,7 +27,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/transaction")
+@RequestMapping("/api/transaction")
 @AllArgsConstructor
 @Tag(name = "Transaction history  API")
 public class TransactionHistoryController {

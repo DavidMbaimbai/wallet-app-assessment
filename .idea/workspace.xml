@@ -4,13 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="Assessment">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/transfer-transaction/transfer-transaction.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/transfer-transaction/transfer-transaction.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/transfer-transaction/transfer-transaction.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/transfer-transaction/transfer-transaction.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/models/customer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/models/customer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/services/customers.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/services/customers.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/services/transactions.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/services/transactions.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.development.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.development.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +109,7 @@
       <recent name="com.walletapp.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server (frontend)">
+  <component name="RunManager" selected="Spring Boot.WalletApp">
     <configuration name="WalletApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.walletapp.WalletApp" />
       <module name="wallet" />
@@ -193,6 +201,7 @@
       <workItem from="1713209795295" duration="33109000" />
       <workItem from="1713278205674" duration="1729000" />
       <workItem from="1713280538848" duration="1407000" />
+      <workItem from="1713285107003" duration="4610000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />

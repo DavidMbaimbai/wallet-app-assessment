@@ -22,12 +22,12 @@ export class CustomersService {
   }
 
   createCustomer(data: any): any {
-    return this.http.post(this.apiUrl, data);
+    return this.http.post(this.apiUrl, + "create" + data);
   }
 
   // balance enquiry
   getBalance(data: any): any {
-    return this.http.post(this.apiUrl + "balance/enquiry", data);
+    return this.http.post(this.apiUrl + "balance-enquiry", data);
   }
 
   transferAccount(data: any): any {

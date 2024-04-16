@@ -16,7 +16,4 @@ export const routes: Routes = [
   { path: 'trans-history', component: TransactionHistoryComponent },
   { path: 'trans-credit', component: CreditTransactionComponent },
   { path: 'trans-debit', component: DebitTransactionComponent },
-  { path: 'transfer', component: TransferTransactionComponent },
-
-
 ];

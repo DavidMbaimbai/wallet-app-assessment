@@ -42,9 +42,12 @@ export class RegisterComponent implements OnInit {
       this.registerForm = this.fb.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
+        otherName: ['', Validators.required],
         gender: ['', Validators.required],
         address: ['', Validators.required],
-        phone: ['', Validators.required],
+        stateOfOrigin: ['', Validators.required],
+        phoneNumber: ['', Validators.required],
+        alternativeNumber: ['', Validators.required],
         email: ['', [Validators.required,
         Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
         password: ['', Validators.required]
