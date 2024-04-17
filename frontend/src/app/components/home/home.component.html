@@ -22,15 +22,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>transactionId</td>
-                        <td>CREDIT</td>
-                        <td>$180000</td>
-                        <td>5678999</td>
-                        <td>SUCCESS</td>
-                        <td>2024-04-16</td>
-                        <td>2024-04-16</td>
-                    </tr>
+                <tr *ngFor='let transaction of transactions'>
+                  <td>{{transaction.transactionId}}</td>
+                  <td>{{transaction.transactionType}}</td>
+                  <td>{{transaction.amount}}</td>
+                  <td>{{transaction.accountNumber}}</td>
+                  <td>{{transaction.status}}</td>
+                  <td>{{transaction.createdAt}}</td>
+                  <td>{{transaction.modifiedAt}}</td>
+                </tr>
                 </tbody>
             </table>
         </div>

@@ -10,5 +10,5 @@ import { HeaderComponent } from '../../shared/partials/header/header.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  transactions: any[] = [];
 }
