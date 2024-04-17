@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/17.3.4/WalletApp/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/17.3.4/WalletApp/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/models/customer.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/models/customer.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/partials/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/partials/header/header.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +94,9 @@
       <recent name="C:\projects\WALLET-APP\frontend" />
       <recent name="C:\projects\WALLET-APP\wallet\src\main\resources" />
       <recent name="C:\projects\WALLET-APP\wallet" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\WALLET-APP\frontend\src\app\components" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.walletapp.dto" />
@@ -195,7 +195,7 @@
       <workItem from="1713278205674" duration="1729000" />
       <workItem from="1713280538848" duration="1407000" />
       <workItem from="1713285107003" duration="13784000" />
-      <workItem from="1713348510725" duration="8568000" />
+      <workItem from="1713348510725" duration="9851000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
@@ -373,7 +373,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713357188850</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Assessment">
+      <option name="closed" value="true" />
+      <created>1713358181860</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713358181860</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
