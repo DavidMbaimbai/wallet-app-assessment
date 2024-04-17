@@ -7,13 +7,8 @@
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.angular/cache/17.3.4/WalletApp/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.angular/cache/17.3.4/WalletApp/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/transaction-history/transaction-history.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/transaction-history/transaction-history.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/shared/partials/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/shared/partials/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/java/com/walletapp/controller/TransactionHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/target/classes/com/walletapp/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/target/classes/com/walletapp/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/target/classes/com/walletapp/controller/TransactionHistoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/target/classes/com/walletapp/controller/TransactionHistoryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/transaction-history/transaction-history.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/transaction-history/transaction-history.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/frontend/src/app/shared/partials/header/header.component.html" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/pom.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/JwtTokenProvider.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/wallet/src/main/java/com/walletapp/config/SecurityConfig.java" root0="SKIP_INSPECTION" />
@@ -197,7 +193,7 @@
       <workItem from="1713278205674" duration="1729000" />
       <workItem from="1713280538848" duration="1407000" />
       <workItem from="1713285107003" duration="13784000" />
-      <workItem from="1713348510725" duration="5616000" />
+      <workItem from="1713348510725" duration="7183000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
@@ -351,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713349433535</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Assessment">
+      <option name="closed" value="true" />
+      <created>1713354865808</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713354865808</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
