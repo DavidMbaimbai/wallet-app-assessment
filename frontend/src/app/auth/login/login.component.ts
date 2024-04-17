@@ -30,11 +30,16 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
       this.initForm();
       this.route.queryParams.subscribe((params) => {
-        const key1 = 'loggedOut';
-        if (params[key1] === 'success') {
-          this.notify = 'You have been logged out successfully';
-          this.toastr.success(this.notify);
-        }
+        const key1 = 'registered';
+        const key2 = 'loggedOut';
+      if (params[key1] === 'success') {
+        this.notify = 'You have been successfully registered. Please Log in';
+        this.toastr.success(this.notify);
+      }
+      if (params[key2] === 'success') {
+        this.notify = 'You have been logged out successfully';
+        this.toastr.success(this.notify);
+      }
       });
     }
 
@@ -54,8 +59,18 @@ export class LoginComponent implements OnInit {
     login(): void {
       this.errors = [];
       this.spinner.show();
-      this.router.navigate(['/home'], { queryParams: { loggedin: 'success' } });
-      this.spinner.hide();
+      this.auth.loginUser(this.loginForm.value)
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
+          this.spinner.hide();
+        },
+        error: (errorResponse) => {
+          this.errors.push("Login Failed. Try again");
+          console.log(errorResponse);
+          this.spinner.hide();
+        },
+      });
     }
 
 

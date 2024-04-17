@@ -1,9 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, RouterLinkWithHref } from '@angular/router';
+import { RouterLinkWithHref } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
-import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -23,31 +22,22 @@ export class RegisterComponent implements OnInit {
   constructor(private auth: AuthService,
     private router: Router,
     private fb: FormBuilder,
-    private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
-    private route: ActivatedRoute) { }
+    private spinner: NgxSpinnerService,) { }
 
     ngOnInit(): void {
       this.initForm();
-      this.route.queryParams.subscribe((params) => {
-        const key1 = 'loggedOut';
-        if (params[key1] === 'success') {
-          this.notify = 'You have been logged out successfully';
-          this.toastr.success(this.notify);
-        }
-      });
     }
 
     initForm(): void {
       this.registerForm = this.fb.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        otherName: ['', Validators.required],
+        otherName: [''],
         gender: ['', Validators.required],
         address: ['', Validators.required],
-        stateOfOrigin: ['', Validators.required],
+        stateOfOrigin: [''],
         phoneNumber: ['', Validators.required],
-        alternativeNumber: ['', Validators.required],
+        alternativePhoneNumber: [''],
         email: ['', [Validators.required,
         Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
         password: ['', Validators.required]
@@ -65,7 +55,7 @@ export class RegisterComponent implements OnInit {
       this.auth.register(this.registerForm.value)
       .subscribe(() => {
         this.spinner.hide();
-        this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
+        this.router.navigate(['/login'], { queryParams: { loggedin: 'success' } });
       }, (error) => {
         this.spinner.hide();
         this.errors = error.error;

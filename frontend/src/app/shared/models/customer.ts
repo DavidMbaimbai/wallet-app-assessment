@@ -1,13 +1,12 @@
-export class Customer {
+export interface Customer {
   id?: number;
   firstName?: string;
   lastName?: string;
   otherName?: string;
-  gender?: string;
-  address?: string;
-  stateOfOrigin?: string;
   email?: string;
-  password?: string
+  password?: string;
   phoneNumber?: string;
-  alternativeNumber?: string;
+  alternativePhoneNumber?: string;
+  address?: string;
+  gender?: string;
 }

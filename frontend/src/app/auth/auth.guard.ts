@@ -26,7 +26,7 @@ export class AuthGuard {
     return false;
   }
   private isLoginOrRegister(): boolean {
-    if (this.url.includes('/login')) {
+    if (this.url.includes('/login')  || this.url.includes('/register'))  {
       return true;
     }
     return false;
@@ -34,7 +34,7 @@ export class AuthGuard {
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     this.url = state.url;
-    if (this.auth) {
+    if (this.auth.isAuthenticated()) {
      return this.authState();
     }
     return this.notAuthState();

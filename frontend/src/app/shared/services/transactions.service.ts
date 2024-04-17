@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
 })
 export class TransactionsService {
 
-  private apiUrl: string = environment.apiUrl + "transaction";
+  private apiUrl: string = environment.apiUrl + "transaction/";
 
   constructor(public http: HttpClient) {
     console.log("Hello Transaction Provider");
