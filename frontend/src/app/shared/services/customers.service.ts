@@ -27,12 +27,9 @@ export class CustomersService {
 
   // balance enquiry
   getBalance(data: any): any {
-    return this.http.post(this.apiUrl + "balance/enquiry", data);
+    return this.http.get(this.apiUrl + "balance-enquiry", data);
   }
 
-  transferAccount(data: any): any {
-    return this.http.post(this.apiUrl + "transfer", data);
-  }
 
   debitAccount(data: any): any {
     return this.http.post(this.apiUrl + "debit", data);
