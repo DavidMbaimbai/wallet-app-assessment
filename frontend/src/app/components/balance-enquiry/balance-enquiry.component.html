@@ -1,0 +1,47 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<app-header></app-header>
+
+<!-- form to input account number then get balance -->
+
+<div class="container mt-5">
+
+    <!-- show balance here only after form submit -->
+    @if (balance && isSubmitted) {
+
+    <div class="row mb-2">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h6 class="card-subtitle mb-2 text-muted">Your current balance</h6>
+                    <h2 class="card-text">{{ balance.accountBalance }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    }
+
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="text-center text-info">Balance Enquiry</h5>
+                    <form [formGroup]="balanceForm" (ngSubmit)="getBalance()">
+                        <div class="input-group mt-3">
+                            <i class="fa fa-user input-group-text"></i>
+                            <input type="text" class="form-control" placeholder="Account Number" formControlName="accountNumber" required>
+                        </div>
+                        @if (isValidInput('accountNumber')) {
+                        <div class="alert alert-danger">
+                            @if (balanceForm.controls['accountNumber'].errors.required) { Account number is required. }
+                        </div>
+                        }
+                        <button [disabled]="!balanceForm.valid" type="submit" class="w-100 btn btn-lg btn-primary signup mt-4">Get Balance</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
