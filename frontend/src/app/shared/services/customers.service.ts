@@ -30,9 +30,6 @@ export class CustomersService {
     return this.http.get(this.apiUrl + "balance-enquiry/" + accountNumber);
   }
 
-  transferAccount(data: any): any {
-    return this.http.post(this.apiUrl + "transfer", data);
-  }
 
   debitAccount(data: any): any {
     return this.http.post(this.apiUrl + "debit", data);
