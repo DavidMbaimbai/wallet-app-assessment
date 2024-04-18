@@ -6,42 +6,33 @@
         <div class="col-md-12">
 
             <!-- align h5 center -->
-            <h5 class="text-center text-info">Crypto Information</h5>
+            <h5 class="text-center text-info">Transaction Information</h5>
 
-            <table class="table table-striped">
-                <!-- caption -->
-                <thead>
-                    <tr>
-                        <th>Crypto</th>
-                        <th>Price</th>
-                        <th>Market Cap</th>
-                        <th>Volume</th>
-                        <th>Change</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bitcoin</td>
-                        <td>$ 10,000</td>
-                        <td>$ 180 B</td>
-                        <td>$ 10 B</td>
-                        <td>10%</td>
-                    </tr>
-                    <tr>
-                        <td>Ethereum</td>
-                        <td>$ 1,000</td>
-                        <td>$ 80 B</td>
-                        <td>$ 5 B</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <td>Ripple</td>
-                        <td>$ 0.5</td>
-                        <td>$ 20 B</td>
-                        <td>$ 2 B</td>
-                        <td>2%</td>
-                    </tr>
-                </tbody>
-            </table>
+          <table class="table table-striped">
+            <!-- caption -->
+            <thead>
+            <tr>
+              <th>transactionId</th>
+              <th>transactionType</th>
+              <th>amount</th>
+              <th>accountNumber</th>
+              <th>status</th>
+              <th>createdAt</th>
+              <th>modifiedAt</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor='let transaction of transactions'>
+              <td>{{transaction.transactionId}}</td>
+              <td>{{transaction.transactionType}}</td>
+              <td>{{transaction.amount}}</td>
+              <td>{{transaction.accountNumber}}</td>
+              <td>{{transaction.status}}</td>
+              <td>{{transaction.createdAt}}</td>
+              <td>{{transaction.modifiedAt}}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
     </div>
+</div>

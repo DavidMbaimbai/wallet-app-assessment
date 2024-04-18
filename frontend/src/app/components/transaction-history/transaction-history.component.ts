@@ -10,5 +10,5 @@ import { HeaderComponent } from '../../shared/partials/header/header.component';
   styleUrl: './transaction-history.component.css'
 })
 export class TransactionHistoryComponent {
-
+  transactions: any[] = [];
 }
