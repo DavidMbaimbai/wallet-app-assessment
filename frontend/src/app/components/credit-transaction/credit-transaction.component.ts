@@ -30,7 +30,7 @@ export class CreditTransactionComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
-    private customersService: CustomersService // Inject CustomersService
+    private customersService: CustomersService
   ) { }
 
   ngOnInit(): void {
