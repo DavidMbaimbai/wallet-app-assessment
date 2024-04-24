@@ -1,19 +1,22 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
-import { FooterComponent } from '../../shared/partials/footer/footer.component';
-import { HeaderComponent } from '../../shared/partials/header/header.component';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
+import {NgxSpinnerModule, NgxSpinnerService} from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { CustomersService } from '../../shared/services/customers.service';
 import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import {HeaderComponent} from "../../shared/partials/header/header.component";
 
 @Component({
   selector: 'app-balance-enquiry',
-  standalone: true,
-  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule, NgxSpinnerModule],
   templateUrl: './balance-enquiry.component.html',
-  styleUrl: './balance-enquiry.component.css',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    HeaderComponent,
+    NgxSpinnerModule
+  ],
+  styleUrls: ['./balance-enquiry.component.css']
 })
 export class BalanceEnquiryComponent implements OnInit, OnDestroy {
 
@@ -29,7 +32,6 @@ export class BalanceEnquiryComponent implements OnInit, OnDestroy {
     private customerService: CustomersService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
-
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +50,6 @@ export class BalanceEnquiryComponent implements OnInit, OnDestroy {
   }
 
   getBalance(): void {
-
     this.spinner.show();
     this.isSubmitted = true;
     this.errors = [];
@@ -61,18 +62,20 @@ export class BalanceEnquiryComponent implements OnInit, OnDestroy {
       },
       (error: any) => {
         this.spinner.hide();
-        this.errors.push(error.error.message);
+        if (error instanceof HttpErrorResponse && error.error && error.error.message) {
+          this.errors.push(error.error.message);
+        } else if (error.status === 403) {
+          this.errors.push("Unauthorized access. Please check your credentials.");
+        } else {
+          this.errors.push("An unknown error occurred.");
+        }
         this.toastr.error('Balance Enquiry Failed');
         console.log('Error ', error);
       }
     );
-
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
-
-
-
 }
