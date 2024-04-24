@@ -2,10 +2,10 @@
 FROM openjdk:17-jdk-slim
 
 #information around who maintains the image
-MAINTAINER edsonj.co.za
+MAINTAINER david.mbaimbai.co.za
 
 #Add the application's jar to the image
-COPY target/accounts-0.0.1-SNAPSHOT.jar accounts-0.0.1-SNAPSHOT.jar
+COPY target/wallet-0.0.1-SNAPSHOT.jar wallet-0.0.1-SNAPSHOT.jar
 
 #execute the application
-ENTRYPOINT ["java", "-jar", "accounts-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "wallet-0.0.1-SNAPSHOT.jar"]
