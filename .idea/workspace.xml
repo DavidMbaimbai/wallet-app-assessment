@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/wallet/rabbitmq/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/resources/docker-compose-mysql-only.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wallet/src/main/resources/docker-compose-rabbitmq-only.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/balance-enquiry/balance-enquiry.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/balance-enquiry/balance-enquiry.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/mysql/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/mysql/docker-compose.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +65,8 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.WalletApp.executor&quot;: &quot;Run&quot;,
     &quot;Docker.mysql/docker-compose.yaml.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.resources/docker-compose-mysql-only.yml.db: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.resources/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.wallet.postgres: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.wallet: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -116,7 +116,7 @@
       <recent name="com.walletapp.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.mysql/docker-compose.yaml.mysql: Compose Deployment">
+  <component name="RunManager" selected="Docker.resources/docker-compose-mysql-only.yml.db: Compose Deployment">
     <configuration name="WalletApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.walletapp.WalletApp" />
       <module name="wallet" />
@@ -166,23 +166,28 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="wallet: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="wallet/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="wallet.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="resources/docker-compose-mysql-only.yml.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="postgres" />
+              <option value="db" />
             </list>
           </option>
-          <option name="sourceFilePath" value="wallet/docker-compose.yml" />
+          <option name="sourceFilePath" value="wallet/src/main/resources/docker-compose-mysql-only.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="resources/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="rabbit1" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="wallet/src/main/resources/docker-compose-rabbitmq-only.yml" />
         </settings>
       </deployment>
       <method v="2" />
@@ -209,11 +214,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.resources/docker-compose-mysql-only.yml.db: Compose Deployment" />
+        <item itemvalue="Spring Boot.WalletApp" />
+        <item itemvalue="Docker.resources/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment" />
         <item itemvalue="Docker.mysql/docker-compose.yaml.mysql: Compose Deployment" />
         <item itemvalue="Application.WalletApp" />
-        <item itemvalue="Docker.mysql/docker-compose.yaml.mysql: Compose Deployment" />
-        <item itemvalue="Spring Boot.WalletApp" />
-        <item itemvalue="Docker.wallet: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -244,7 +249,7 @@
       <workItem from="1713450817918" duration="516000" />
       <workItem from="1713451782861" duration="762000" />
       <workItem from="1713854433504" duration="12637000" />
-      <workItem from="1713948480231" duration="2609000" />
+      <workItem from="1713948480231" duration="3971000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
@@ -494,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713874890452</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Assessment">
+      <option name="closed" value="true" />
+      <created>1713951788755</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1713951788755</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
