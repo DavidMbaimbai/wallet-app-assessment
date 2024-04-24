@@ -7,7 +7,7 @@
     <list default="true" id="e37ebbeb-cbc5-488e-81c5-ee1597b5fc78" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wallet/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/docker-compose-mysql-only.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet/docker-compose-rabbitmq-only.yml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet/docker-compose-rabbitmq-only.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,44 +57,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Generator.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.WalletApp.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.mysql/docker-compose.yaml.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.resources/docker-compose-mysql-only.yml.db: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.resources/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.wallet.postgres: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.wallet: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.WalletApp.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/projects/WALLET-APP/wallet&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server (frontend).executor&quot;: &quot;Run&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\projects\\WALLET-APP\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Generator.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.WalletApp.executor": "Run",
+    "Docker.mysql/docker-compose.yaml.mysql: Compose Deployment.executor": "Run",
+    "Docker.resources/docker-compose-mysql-only.yml.db: Compose Deployment.executor": "Run",
+    "Docker.resources/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment.executor": "Run",
+    "Docker.wallet.postgres: Compose Deployment.executor": "Run",
+    "Docker.wallet/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment.executor": "Run",
+    "Docker.wallet: Compose Deployment.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.WalletApp.executor": "Run",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/projects/WALLET-APP/wallet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server (frontend).executor": "Run",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "ts.external.directory.path": "C:\\projects\\WALLET-APP\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -114,20 +115,7 @@
       <recent name="com.walletapp.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.WalletApp">
-    <configuration name="WalletApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.walletapp.WalletApp" />
-      <module name="wallet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.walletapp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.wallet/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment">
     <configuration name="Angular Application (frontend)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -190,6 +178,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="wallet/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="rabbit1" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="wallet/docker-compose-rabbitmq-only.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="Angular CLI Server (frontend)" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
       <command value="run" />
@@ -212,11 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.wallet/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment" />
         <item itemvalue="Spring Boot.WalletApp" />
         <item itemvalue="Docker.resources/docker-compose-mysql-only.yml.db: Compose Deployment" />
         <item itemvalue="Docker.resources/docker-compose-rabbitmq-only.yml.rabbit1: Compose Deployment" />
         <item itemvalue="Docker.mysql/docker-compose.yaml.mysql: Compose Deployment" />
-        <item itemvalue="Application.WalletApp" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +249,7 @@
       <workItem from="1713451782861" duration="762000" />
       <workItem from="1713854433504" duration="12637000" />
       <workItem from="1713948480231" duration="3971000" />
-      <workItem from="1713953178848" duration="1518000" />
+      <workItem from="1713953178848" duration="2562000" />
     </task>
     <task id="LOCAL-00001" summary="Assessment">
       <option name="closed" value="true" />
@@ -514,7 +515,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713953301550</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Assessment">
+      <option name="closed" value="true" />
+      <created>1713954805642</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1713954805642</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
